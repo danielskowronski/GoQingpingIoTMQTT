@@ -4,11 +4,13 @@
 
 package model
 
-type Protocol string
+type ProtocolType string
 
 const (
-	ProtocolMQTT Protocol = "mqtt"
-	ProtocolHEX  Protocol = "hex"
+	ProtocolJSON       ProtocolType = "json"
+	ProtocolJSONHeader string       = "{"
 
-	ProtocolHEXTypeField string = "type"
+	ProtocolHEX          ProtocolType = "hex"
+	ProtcolHEXHeader     uint16       = 0x4347
+	ProtocolHEXTypeField string       = "type"
 )

@@ -12,20 +12,15 @@ import (
 
 type RawMessage struct {
 	DeviceID         string
-	Protocol         model.Protocol
 	MessageDirection model.MessageDirection
 	RawMessage       []byte // encoded string for JSON, bytes for HEX
-
-	decoder RawMessageDecoder
 }
 
-type RawMessageDecoder interface {
-	Decode() (*ParsedMessage, error)
-}
-
-func (rm *RawMessage) Decode() (*ParsedMessage, error) {
-	if rm.decoder == nil {
-		return nil, errors.New("no decoder configured")
+func (rm *RawMessage) Decode() (*Message, error) {
+	if rm.IsJSON() {
+		return nil, errors.New("JSON decoding not implemented yet")
+	} else if rm.IsHEX() {
+		return rm.DecodeHEX()
 	}
-	return rm.decoder.Decode()
+	return nil, errors.New("unknown protocol header")
 }

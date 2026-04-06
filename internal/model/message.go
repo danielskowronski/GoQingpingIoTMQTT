@@ -13,6 +13,7 @@ const (
 	MessageTypeResponseFromDevice MessageType = "response_from_device"
 	MessageTypeOtherFromDevice    MessageType = "other_from_device"
 	MessageTypeOtherFromServer    MessageType = "other_from_server"
+	MessageTypeInvalid            MessageType = "invalid"
 )
 
 type MessageDirection string
