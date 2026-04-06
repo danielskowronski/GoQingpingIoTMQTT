@@ -7,37 +7,37 @@ package protocol
 import "github.com/danielskowronski/GoQingpingIoTMQTT/internal/model"
 
 func IsValidCommandJson(cmd int16, direction model.MessageDirection) bool {
-	if cmd == model.CmdDeviceLogReport || cmd == model.CmdBindingStatus || cmd == model.CmdBindingStatusThirdPartyDevice {
+	if cmd == model.VerbDeviceLogReport || cmd == model.VerbBindingStatus || cmd == model.VerbBindingStatusThirdPartyDevice {
 		return true // FIXME: those are untested and improperly documented in spec, need to investigate
 	}
 	switch direction {
 	case model.MessageDirectionDeviceToServer:
-		return cmd == model.CmdBleConnectionRequest ||
-			cmd == model.CmdBleDisconnectionRequest ||
-			cmd == model.CmdOpenBleNotificationRequest ||
-			cmd == model.CmdCloseBleNotificationRequest ||
-			cmd == model.CmdBleDataWithResponse ||
-			cmd == model.CmdBleDataRead ||
-			cmd == model.CmdDeviceListResponse ||
-			cmd == model.CmdTemporaryReportSetting ||
-			cmd == model.CmdReconnectMqtt ||
-			cmd == model.CmdBleDataWithoutResponse ||
-			cmd == model.CmdModifyMqttConnectionSetting ||
-			cmd == model.CmdModifyDataReportInterval ||
-			cmd == model.CmdHistoryDataReportResponse ||
-			cmd == model.CmdOtaCommand ||
-			cmd == model.CmdDeviceListResponseWithName ||
-			cmd == model.CmdReadDeviceSettingRequest
+		return cmd == model.VerbBleConnectionRequest ||
+			cmd == model.VerbBleDisconnectionRequest ||
+			cmd == model.VerbOpenBleNotificationRequest ||
+			cmd == model.VerbCloseBleNotificationRequest ||
+			cmd == model.VerbBleDataWithResponse ||
+			cmd == model.VerbBleDataRead ||
+			cmd == model.VerbDeviceListResponse ||
+			cmd == model.VerbTemporaryReportSetting ||
+			cmd == model.VerbReconnectMqtt ||
+			cmd == model.VerbBleDataWithoutResponse ||
+			cmd == model.VerbModifyMqttConnectionSetting ||
+			cmd == model.VerbModifyDataReportInterval ||
+			cmd == model.VerbHistoryDataReportResponse ||
+			cmd == model.VerbOtaCommand ||
+			cmd == model.VerbDeviceListResponseWithName ||
+			cmd == model.VerbReadDeviceSettingRequest
 	case model.MessageDirectionServerToDevice:
-		return cmd == model.CmdBleNotificationResponse ||
-			cmd == model.CmdBleDataResponse ||
-			cmd == model.CmdBroadcastData ||
-			cmd == model.CmdDeviceListRequest ||
-			cmd == model.CmdHeartbeat ||
-			cmd == model.CmdSensorDataReportRealtime ||
-			cmd == model.CmdSensorDataReportHistory ||
-			cmd == model.CmdOtaCommandResponse ||
-			cmd == model.CmdDeviceListRequestWithName
+		return cmd == model.VerbBleNotificationResponse ||
+			cmd == model.VerbBleDataResponse ||
+			cmd == model.VerbBroadcastData ||
+			cmd == model.VerbDeviceListRequest ||
+			cmd == model.VerbHeartbeat ||
+			cmd == model.VerbSensorDataReportRealtime ||
+			cmd == model.VerbSensorDataReportHistory ||
+			cmd == model.VerbOtaCommandResponse ||
+			cmd == model.VerbDeviceListRequestWithName
 	default:
 		return false
 	}

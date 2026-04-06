@@ -9,4 +9,6 @@ type Protocol string
 const (
 	ProtocolMQTT Protocol = "mqtt"
 	ProtocolHEX  Protocol = "hex"
+
+	ProtocolHEXTypeField string = "type"
 )
