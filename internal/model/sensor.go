@@ -1,3 +1,7 @@
+// SPDX-FileCopyrightText: 2026-present Daniel Skowroński <GoQingpingIoTMQTT@skowronski.cloud>
+//
+// SPDX-License-Identifier: BSD-3-Clause
+
 package model
 
 type SensorStatus string
